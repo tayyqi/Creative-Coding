@@ -8,14 +8,25 @@ collage is of quite a large scale, consisting of 718 illustrations by James Sowe
 
 Content: https://www.boredpanda.com/cat-maneuvers-explained-itsjayordan/?utm_source=google&utm_medium=organic&utm_campaign=organic
 I chanced upon an article about a vet who had pinned up witty explanations of cat bahaviours on his cork board. As the illustrations in the article are all in grayscale, 
-I will be sourcing for similar/new illustrations with the addition of gifs/videos to better illustrate the cat behaviours
+I will be sourcing for similar/new illustrations with the addition of gifs/videos to better illustrate the cat behaviours.
+These explanations were originally created by Adam Ellis and can be found here: https://www.buzzfeed.com/adamellis/shocking-truths-behind-what-cat-behaviors-actually-mean?utm_term=.oc4OXODaA#.hnZWAWb4E
 
  */
 
+function preload() {
+
+}
+
 function setup() {
-    createCanvas(400,400);
+    createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
     background(230);
+}
+
+class Photo {
+    constructor(){
+
+    }
 }
