@@ -49,10 +49,7 @@ function vidload(){
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    // for(var i=0; i<videos.length; i++){
-    //     let video = videos[i];
-    //     video.hide();
-    // }
+
 }
 
 function draw() {

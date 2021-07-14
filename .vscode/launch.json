@@ -5,13 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "sourceMaps": true
+        },
+
+        {
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Final Assignment_Interactive Collage\\sketch.js"
+            "program": "${workspaceFolder}\\sketch.js"
         }
     ]
 }
