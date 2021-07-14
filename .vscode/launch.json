@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Final Assignment - Interactive Collage\\sketch.js"
+            "program": "${workspaceFolder}\\Final Assignment_Interactive Collage\\sketch.js"
         }
     ]
 }
