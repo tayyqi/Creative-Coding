@@ -8,10 +8,9 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "pwa-chrome",
-            "url": "http://localhost:8080",
+            "url": "http://localhost:5500",
             "webRoot": "${workspaceFolder}",
-            "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
-            "sourceMaps": true
+            "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe"
         },
 
         {
