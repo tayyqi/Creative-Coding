@@ -26,7 +26,10 @@ function draw() {
 }
 
 class Photo {
-    constructor(){
-
+    constructor(x, y, behaviour, expExpert, expTruth){
+        this.pos = (x,y);
+        this.title = behaviour;
+        this.expExpert = expExpert;
+        this.expTruth = expTruth;
     }
 }
