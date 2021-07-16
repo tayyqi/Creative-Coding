@@ -4,119 +4,119 @@
     "Behaviour": "One leg extended",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Your cat is raising its leg to more easily clean itself.",
-    "The-truth": "Forget baking classes, your cat wants to learn to play the cello now. It's emulating the act of playing cello to get your attention. Write a check for $8,000 immediately."
+    "Experts": "Your cat is raising its leg to more easily clean itself.",
+    "Truth": "Forget baking classes, your cat wants to learn to play the cello now. It's emulating the act of playing cello to get your attention. Write a check for $8,000 immediately."
   },
   {
     "index": 2,
     "Behaviour": "Nowhere to be found, no matter how hard you look",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Cats are good at hiding. Maybe he's under your bed?",
-    "The-truth": "Cats are time travelers. Yours is probably in feudal China right now. Don't worry, he'll come home soon (maybe)."
+    "Experts": "Cats are good at hiding. Maybe he's under your bed?",
+    "Truth": "Cats are time travelers. Yours is probably in feudal China right now. Don't worry, he'll come home soon (maybe)."
   },
   {
     "index": 3,
     "Behaviour": "Chirping out the window at birds",
     "Anime": "Azumanga Daioh",
-    "PauseTime": 0,
-    "Experts-say": "Chattering is a reflex motion in anticipation of hunting",
-    "The-truth": "Your cat is actually a bird and wants to hang out with other birds. How did you not realize you bought a bird instead of a cat? You dummy."
+    "PauseTime": 1,
+    "Experts": "Chattering is a reflex motion in anticipation of hunting",
+    "Truth": "Your cat is actually a bird and wants to hang out with other birds. How did you not realize you bought a bird instead of a cat? You dummy."
   },
   {
     "index": 4,
     "Behaviour": "Rolling back and forth",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
-    "PauseTime": 3.2,
-    "Experts-say": "Your cat is showing submission or inviting you to play.",
-    "The-truth": "Your cat ate some bad Thai food and is writhing in pain. Stop feeding it so much Pad See Ew."
+    "PauseTime": 3.55,
+    "Experts": "Your cat is showing submission or inviting you to play.",
+    "Truth": "Your cat ate some bad Thai food and is writhing in pain. Stop feeding it so much Pad See Ew."
   },
   {
     "index": 5,
     "Behaviour": "Sleeping in a perfect circle",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Sleeping in a circle conserves body heat.",
-    "The-truth": "Time is cyclical, and nobody understands this better than cats. When your cat sleeps in a circle, it's a sign that this world is ending and giving way to a greater, more terrifying universe."
+    "Experts": "Sleeping in a circle conserves body heat.",
+    "Truth": "Time is cyclical, and nobody understands this better than cats. When your cat sleeps in a circle, it's a sign that this world is ending and giving way to a greater, more terrifying universe."
   },
   {
     "index": 6,
     "Behaviour": "Sitting on your computer when you need to work",
     "Anime": "My Roommate Is a Cat",
     "PauseTime": 0,
-    "Experts-say": "Cats like warm places, and your laptop is warm.",
-    "The-truth": "Your cat knows how many times a day you creepstalk your ex, and has decided it's time for an intervention."
+    "Experts": "Cats like warm places, and your laptop is warm.",
+    "Truth": "Your cat knows how many times a day you creepstalk your ex, and has decided it's time for an intervention."
   },
   {
     "index": 7,
     "Behaviour": "Making squinty eyes at you",
     "Anime": "Whisper of the Heart",
     "PauseTime": 0,
-    "Experts-say": "Cats squint at you when they're content. Slowly closing their eyes at you is a sign of trust.",
-    "The-truth": "Your cat's eyes are overly sensitive to the sun and it's squinting because it wants a new pair of Ray-Ban Clubmasters. Get to shoppin'."
+    "Experts": "Cats squint at you when they're content. Slowly closing their eyes at you is a sign of trust.",
+    "Truth": "Your cat's eyes are overly sensitive to the sun and it's squinting because it wants a new pair of Ray-Ban Clubmasters. Get to shoppin'."
   },
   {
     "index": 8,
     "Behaviour": "The \"hug 'n' bite",
     "Anime": "Azumanga Daioh",
     "PauseTime": 0,
-    "Experts-say": "Wrestling and biting is a normal part of play for cats.",
-    "The-truth": "With its keen senses, your cat has noticed that the government-implanted tracker in your wrist is about to self-destruct and kill you. It must be removed immediately. Try to relax, your cat is attempting to save your life."
+    "Experts": "Wrestling and biting is a normal part of play for cats.",
+    "Truth": "With its keen senses, your cat has noticed that the government-implanted tracker in your wrist is about to self-destruct and kill you. It must be removed immediately. Try to relax, your cat is attempting to save your life."
   },
   {
     "index": 9,
     "Behaviour": "Quivering butt, ready to pounce",
     "Anime": "My Roommate Is a Cat",
     "PauseTime": 0,
-    "Experts-say": "Cats wiggle back and forth to position themselves for the perfect attack.",
-    "The-truth": "Cats have satellite transmitters in their butts and must periodically recalibrate to receive transmissions from their home planet."
+    "Experts": "Cats wiggle back and forth to position themselves for the perfect attack.",
+    "Truth": "Cats have satellite transmitters in their butts and must periodically recalibrate to receive transmissions from their home planet."
   },
   {
     "index": 10,
     "Behaviour": "Showing its belly to you",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 2,
-    "Experts-say": "An exposed belly is a sign of trust.",
-    "The-truth": "An exposed belly is a trap. Your cat knows you can't resist snuggling its furry belly, at which point it will attack you and feast on your flesh. Beware."
+    "Experts": "An exposed belly is a sign of trust.",
+    "Truth": "An exposed belly is a trap. Your cat knows you can't resist snuggling its furry belly, at which point it will attack you and feast on your flesh. Beware."
   },
   {
     "index": 11,
     "Behaviour": "Staring off into space, wide-eyed",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Cats have keen senses, and the smallest movement will catch their attention. They probably saw a bug or a speck of dust.",
-    "The-truth": "Evil, skinless demons have crossed into this realm, and only your cat can see them. Run."
+    "Experts": "Cats have keen senses, and the smallest movement will catch their attention. They probably saw a bug or a speck of dust.",
+    "Truth": "Evil, skinless demons have crossed into this realm, and only your cat can see them. Run."
   },
   {
     "index": 12,
     "Behaviour": "Kneading\" with its paws",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "As kittens, cats will knead their mother's stomach to produce milk, and this is most likely a leftover trait from kittenhood. It might also be an instinctual part of settling down to sleep.",
-    "The-truth": "Your cat saw an ad for baking classes in the local paper and wants to enroll. Write a check for $350 immediately."
+    "Experts": "As kittens, cats will knead their mother's stomach to produce milk, and this is most likely a leftover trait from kittenhood. It might also be an instinctual part of settling down to sleep.",
+    "Truth": "Your cat saw an ad for baking classes in the local paper and wants to enroll. Write a check for $350 immediately."
   },
   {
     "index": 13,
     "Behaviour": "Raised butt in your face",
     "Anime": "Whisper of the Heart",
-    "PauseTime": 2,
-    "Experts-say": "Tail sniffing is normal between felines, and this is your cat's way of saying hello to you.",
-    "The-truth": "Your cat just cleaned its butt and wants to show it off to you. Look at that sparkling clean butt and say, \"Very nice butt, cat. Good job."
+    "PauseTime": 2.3,
+    "Experts": "Tail sniffing is normal between felines, and this is your cat's way of saying hello to you.",
+    "Truth": "Your cat just cleaned its butt and wants to show it off to you. Look at that sparkling clean butt and say, \"Very nice butt, cat. Good job."
   },
   {
     "index": 14,
     "Behaviour": "Sitting in \"cat loaf\" formation",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Your cat tucks its paws underneath it because it feels content and safe, plus it keeps body heat from escaping.",
-    "The-truth": "Your cat is annoyed that you didn't enroll it in baking classes and thinks the only way to get your attention is to pretend it's an actual loaf of bread."
+    "Experts": "Your cat tucks its paws underneath it because it feels content and safe, plus it keeps body heat from escaping.",
+    "Truth": "Your cat is annoyed that you didn't enroll it in baking classes and thinks the only way to get your attention is to pretend it's an actual loaf of bread."
   },
   {
     "index": 15,
     "Behaviour": "Sleeping in boxes",
     "Anime": "Rokuhoudou Yotsuiro Biyori",
     "PauseTime": 0,
-    "Experts-say": "Cats are drawn to the confined space of a box because it offers security.",
-    "The-truth": "Your cat is having a quarter-life crisis and thinks a trip to Mozambique would offer some worldly perspective. Tape up the box, slap on some postage, and mail your kitty to Africa."
+    "Experts": "Cats are drawn to the confined space of a box because it offers security.",
+    "Truth": "Your cat is having a quarter-life crisis and thinks a trip to Mozambique would offer some worldly perspective. Tape up the box, slap on some postage, and mail your kitty to Africa."
   }
 ]

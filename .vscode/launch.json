@@ -9,7 +9,7 @@
             "request": "launch",
             "type": "pwa-chrome",
             "url": "http://localhost:5500",
-            "webroot": "${workspaceFolder}/Final Assignment_Interactive Collage",
+            "webroot": "${workspaceFolder}",
             "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe"
         },
 
