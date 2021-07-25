@@ -9,70 +9,211 @@ collage is of quite a large scale, consisting of 718 illustrations by James Sowe
 Content: https://www.boredpanda.com/cat-maneuvers-explained-itsjayordan/?utm_source=google&utm_medium=organic&utm_campaign=organic
 I chanced upon an article about a vet who had pinned up witty explanations of cat bahaviours on his cork board. As the illustrations in the article are all in grayscale, 
 I will be sourcing for similar/new illustrations with the addition of gifs/videos to better illustrate the cat behaviours.
-These explanations were originally created by Adam Ellis and can be found here: https://www.buzzfeed.com/adamellis/shocking-truths-behind-what-cat-behaviors-actually-mean?utm_term=.oc4OXODaA#.hnZWAWb4E
+These explanations were originally created by Adam Ellis from BuzzFeed and can be found here: https://www.buzzfeed.com/adamellis/shocking-truths-behind-what-cat-behaviors-actually-mean?utm_term=.oc4OXODaA#.hnZWAWb4E
 
  */
 
-/*Documentation on specific choices
-1. Manual GIF using Sprite Animation
-- Unable to control GIF frames in p5.js, unable to pause and play gifs at will
-- Usage of videos caused a significant lag and other problems such as video reloading when looping, which resulted in the video disappearing which caused problems
-    for mouse interactions
-- since p5.play library was used in the course, I decided to utilise the sprite animation feature for each gif
-- this was done by splitting the gifs into individual frames to build a sprite sheet
-*/
+var expandedView = false;
 
 class Frame {
-    constructor(video, x, y, behaviour, expExpert, expTruth, anime, pauseTime, newHgt){
+    constructor(video, divElt, behaviour, expExpert, expTruth, anime, pauseTime, frameHgt){
+        this.x = 0;
+        this.y = 0;
+        this.height = frameHgt;
+        this.width = 0;
+
         this.video = video;
-        this.x = x;
-        this.y = y;
         this.behaviour = behaviour;
-        this.expExpert = expExpert;
-        this.expTruth = expTruth;
+        this.explanations = [expExpert, expTruth];
         this.anime = anime;
         this.pauseTime = pauseTime;
-        this.height = newHgt;
+        
+        this.title = divElt;
 
-        this.playing = false
+        this.isPaused = true;
+        this.clicked = false;   //has video been clicked on before
+        this.border = 0;
+        this.whiteOut = false;
+
+        this.expand = false;   //determines to which behaviour to show in expanded view
+        this.expIndex = 0;
     }
 
-    display(){
-        let frameWdh = this.video.width*this.height/this.video.height;
+    display(x, y){
+        this.x = x;
+        this.y = y;
 
-        if( mouseX > this.x && mouseX < this.x + frameWdh &&
-            mouseY > this.y && mouseY < this.y + this.height){
-
-                if(this.video.play() !== undefined){
-                    this.video.play().then(_ => {
-                        //loop started
-                        //show playing loop
-                        this.video.loop()
-
-                    })
-                    .catch(error => {
-                        //loop prevented
-                        //show paused screen
-                        this.video.pause().time(this.pauseTime);
-                    })
-                }
-                this.video.loop();
-                print("looping "+ this.behaviour)
-            }
-        else{
-            this.video.pause().time(this.pauseTime);
+        if(this.width == 0){
+            this.calcFrameWidth();
         }
 
+        if(expandedView == false){
+            this.expand = false;
+
+            if(mouseX > this.x && mouseX < this.x + this.width &&
+                mouseY > this.y && mouseY < this.y + this.height){
+                //when hover on frame
+                    if(this.isPaused){
+                        this.video.loop();
+                        print("looping "+ this.behaviour);
+                        print(this.video.width, this.video.height);
+
+                        this.isPaused = false;
+                        this.title.position(this.x, this.y+(this.height*0.9));
+                        this.title.size(this.width, this.height*0.25);
+                        this.title.show();
+
+                        this.border = 20;
+                        this.whiteOut = false;
+
+                        cursor('pointer');
+                    } 
+                }
+            else{
+                cursor(ARROW);
+                this.video.pause().time(this.pauseTime);
+                this.isPaused = true;
+                this.title.hide();
+
+                this.border = 0;
+
+                if(this.clicked){
+                    this.whiteOut = true;
+                }
+            }
+        } 
         
-        image(this.video, this.x, this.y, frameWdh, this.height);
+        rectMode(CORNER);
 
+        // 2 rectangles are used as the border should be outside of the video when hovered, which can only be done if the video was on top of the bordered rectangle
 
+        //rectangle to indicate hover
+        stroke(200,100,50, 90);
+        strokeWeight(this.border);
+        rect(this.x, this.y, this.width, this.height);
+        
+        //show video in canvas
+        image(this.video, this.x, this.y, this.width, this.height);
+
+        //rectangle to indicate clicked. NOTE:If border was placed here, it would eat into the shown video
+        if(this.whiteOut){
+            fill(255,255,255, 150);
+        }else{
+            noFill();
+        }
+        noStroke();
+        rect(this.x, this.y, this.width, this.height);
     }
 
-    // hover(){
-        
+    showInfo(){  //only called when clicked and expandedView is false
+        //check if click on frame
+        if( mouseX > this.x && mouseX < this.x + this.width &&
+            mouseY > this.y && mouseY < this.y + this.height){
+                this.title.hide();
+                expandedView = true;
+                this.clicked = true;
+                this.expand = true;
+        }
+    }
 
-    // }
+    infoView(){ //in expanded view
+        if(this.expand){    //if current object is in expand view
+            this.isPaused = false;
+            let vidHgt = 200;
+            let vidWdh = this.video.width *200/this.video.height;
+            let posX = width/2 - vidWdh/2;
+            image(this.video, posX, 100, vidWdh, vidHgt);
+
+            rectMode(CENTER);
+            textAlign(CENTER);
+            
+            //behaviour placeholder
+            textSize(12);
+            textFont('Helvetica');
+            fill(150);
+            let behaviourHeaderPosY = 100 + vidHgt + 40;
+            text("THE BEHAVIOUR", width/2, behaviourHeaderPosY)
+            
+            //show behaviour as title
+            let titlePosY = behaviourHeaderPosY + 35;
+            let titleSize = 22;
+            textSize(titleSize);
+            textFont('Georgia');
+            textStyle(BOLD);
+            // fill(255,0,0);
+            // rect(width/2,titlePosY, 400,50);
+            fill(0);
+            text(this.behaviour, width/2,titlePosY, 400,50);
+
+            //subheaders
+            let subheadHgt = titleSize*0.8;
+            textSize(subheadHgt);
+            let subheadPosY = titlePosY + 80;
+
+            //show expert subheader
+            let expertPosX = width/2 - 100;
+            let subheadExpert = "\"Experts\" say";
+            this.createSubheader(expertPosX, subheadExpert, subheadPosY, subheadHgt, 0);
+
+            //show truth subheader
+            let truthPosX = width/2 + 100;
+            let subheadTruth = "The truth";
+            this.createSubheader(truthPosX, subheadTruth, subheadPosY, subheadHgt, 1);
+
+            let explainPosY = subheadPosY + 100;
+            //create backing rectangle for explanation
+            fill(0, 30);
+            rect(width/2,explainPosY, 420,140, 20);
+            //show explanation
+            let comment = this.explanations[this.expIndex];
+            fill(0);
+            textStyle(NORMAL);
+            textAlign(LEFT, CENTER);
+            text(comment, width/2,explainPosY, 400,140);
+        }
+    }
+
+    createSubheader(posX, subheaderText, posY, charHgt, index){
+        //set fill for subheader when not hovered
+        let textCol = color(120);
+        let lineCol = color(0);
+        let lineWgt = 3;
+
+        let subheadWdh = textWidth(subheaderText);
+        let startX = posX - subheadWdh/2;   //this is done as text is aligned center,center within the text box ie posX is the center of the full line of text
+        
+        //thicker underline on text when hover
+        if(mouseX > startX && mouseX < startX + subheadWdh &&
+            mouseY > posY-charHgt/2 && mouseY < posY + charHgt/2){
+                //set displayed explanation
+                this.expIndex = index;
+                //set lineWeight
+                lineWgt = 5;
+            }
+
+        //darken and show underline when subheader selected
+        if(this.expIndex == index){
+            textCol = color(0);    //set fill for subheader
+
+            push(); //push pop is used so that the stroke and strokeWeight do not affect other elements in the sketch
+            stroke(lineCol);
+            strokeWeight(lineWgt);
+            line(startX,posY+charHgt, startX + subheadWdh, posY+charHgt);
+            pop();
+        }
+
+        //show subheader
+        textStyle(BOLD);
+        fill(textCol);
+        text(subheaderText, posX, posY);
+    }
+
+    calcFrameWidth(){
+        this.width = this.video.width*this.height/this.video.height;
+
+        return this.width;
+    }
+
 }
 
 ///////////END OF CLASS DECLARATION///////////
@@ -98,13 +239,20 @@ let vid_list = [];
 var catsData = [];
 var frames = [];    //contains all Frame class objects
 
+
 function preload(){
     //load videos
     for(let filename of vid_filelist){
         //load and push the vid into the vidlist
-        vid_list.push( createVideo(filename,vidLoad) );
+        let video = createVideo([filename]);
+        video.id('video');
+
+        print(video.videoWidth)
+        // print(vid.size())
+        vid_list.push(video);
     }
-    print(vid_list.length+ " videos are loaded into the list!");
+
+    print(vid_list.length + " videos are loaded into the list!");
 
     //load cat behaviour json
     loadJSON('files/data_catBehaviours.json', function(data){
@@ -113,55 +261,114 @@ function preload(){
       })
 }
 
-function vidLoad(){
-    for(let video of vid_list){
-        video.volume(0);
-        // video.loop();
-        video.hide();
-    }
-}
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-
     let headerHgt = height/5;
-    let frameHgt = 150;
-    let startX = width/100;
-    let x = startX;
-    let y = height/4 + 20;
+    let frameHgt = (height - headerHgt) / 4.3;
+
     for(let i=0; i < vid_list.length; i++){
         let video = vid_list[i];
-        print(video)
+        //video settings
+        video.volume(0);
+        video.hide();
+        
+        //extract data from cats behaviour json
         let data = catsData[i];
-        print(video.width)
+        let behaviour = data.Behaviour;
+        let expExpert = data.Experts;
+        let expTruth = data.Truth;
+        let anime = data.Anime;
+        let pauseTime = data.PauseTime;
+        
+        let header = createDiv(behaviour);
+        header.style('font-family', 'Georgia');
+        let fontSize = frameHgt*0.12;
+        header.style('font-size', fontSize + 'px');
+        header.style('background-color', 'rgba(255,255,255, 0.7)');
+        header.style('padding', fontSize*0.3 + 'px');
 
-        let newWdh = video.width*frameHgt/video.height;
-        print(i, video.width, newWdh, video.height);
-        print('next')
-
-        behaviour = data.Behaviour;
-        print(data.behaviour)
-        expExpert = data.Experts;
-        expTruth = data.Truth;
-        anime = data.Anime;
-        pauseTime = data.PauseTime;
-
-        frames.push(new Frame(video, x, y, behaviour, expExpert, expTruth, anime, pauseTime, frameHgt));
-
-        //new x and y values for next frame
-        x = x + newWdh;
-        if((i+1)%5 == 0 && i!=0){
-            x = startX;
-            y = y + frameHgt + 20;
-        }
+        frames.push(new Frame(video, header, behaviour, expExpert, expTruth, anime, pauseTime, frameHgt));
     }
 }
 
 function draw() {
-    background(230);
+    background(211,225,234);
+
+    //title of sketch
+    textFont('Georgia');
+    textAlign(CENTER)
+    textSize(30);
+    fill(0,49,82);  //dark blue for sketch title
+    text("15 Cat Behaviours and What They Really Mean", width/2, 110);
+    textSize(25);
+    text("Anime Version", width/2, 150);
+    
+    //display frames
+    let startX = 100;
+    let x = startX;
+    let y = height/4 + 15;
+    let spacing = 0;
+    let framesPerRow = 5;
+
     for(let i=0; i < frames.length; i++){
         let frame = frames[i];
-        frame.display();
+        frame.display(x, y);    //display frames
+
+        //when frame is first frame of each row, determine spacing value
+        if(i%framesPerRow == 0){
+            //subtract "paddings" and current frame width
+            spacing = windowWidth - startX*2 - frame.width;
+            //substract width of other frames in the same row
+            for(let j=1; j < framesPerRow; j++){
+               spacing = spacing - frames[i+j].calcFrameWidth();
+            }
+            //find value of each spacing by dividing by number of spaces
+            spacing = spacing/(framesPerRow - 1);
+        }
+
+        //new x and y values for next frame
+        x = x + frame.width + spacing;
+        if((i+1)%framesPerRow == 0 && i!=0){
+            x = startX;
+            y = y + frame.height*1.25;
+        }
+    }
+
+    if(expandedView){
+        //create whited out backing, this will be overlay on all frames
+        fill(255, 100);
+        rect(0,0, windowWidth, windowHeight);
+
+        //create dialog box to show information
+        push();
+        rectMode(CENTER);
+        noStroke();
+        fill(0,0,0, 20);
+        rect(windowWidth/2, windowHeight/2,  (windowWidth/3)*1.03, windowHeight*0.82);  //shadow
+        fill(228,234,239);
+        rect(windowWidth/2, windowHeight/2,  windowWidth/3, windowHeight*0.8);
+        pop();
+
+        for(let i=0; i < frames.length; i++){
+            let frame = frames[i];
+            frame.infoView();
+        }
     }
 }
 
+function mouseClicked() {
+    if(expandedView){
+        if(mouseX < windowWidth/2-windowWidth/6 || mouseX > windowWidth/2+windowWidth/6 ||
+            mouseY < windowHeight/2-windowHeight*0.4 || mouseY > windowHeight/2+windowHeight*0.4){
+                //when click outside of box, close dialog box
+                expandedView = false;
+            }
+    }
+    else{
+        for(let i=0; i < frames.length; i++){
+            let frame = frames[i];
+            frame.showInfo();
+        }
+    }
+}
