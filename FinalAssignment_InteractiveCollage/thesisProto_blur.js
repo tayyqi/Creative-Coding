@@ -93,10 +93,12 @@ class Frame {
         // 2 rectangles are used as strokeWeight on the 2nd rectagle would result in eating into the video frame
 
         //rectangle to indicate hover
+        push();
         stroke(255, 179, 138);
         strokeWeight(this.border);
         strokeJoin(ROUND);
         rect(this.x, this.y, this.width, this.height, 5);
+        pop();
 
         //show video in canvas
         image(this.video, this.x, this.y, this.width, this.height);
@@ -136,10 +138,10 @@ class Frame {
             }else if(this.expIndex == 1){
                 displayedMedia = this.memeGif;
             }
-            let dispHgt = 250;
+            let dispHgt = this.height*1.5;
             let dispWdh = displayedMedia.width *dispHgt/displayedMedia.height;
             let posX = width/2 - dispWdh/2;
-            image(displayedMedia, posX, 100, dispWdh, dispHgt);
+            image(displayedMedia, posX, height/7, dispWdh, dispHgt);
 
             rectMode(CENTER);
             textAlign(CENTER);
@@ -148,7 +150,7 @@ class Frame {
             textSize(12);
             textFont('Helvetica');
             fill(150);
-            let behaviourHeaderPosY = 100 + dispHgt + 30;
+            let behaviourHeaderPosY = dispHgt*1.7;
             text("THE BEHAVIOUR", width/2, behaviourHeaderPosY)
             
             //show behaviour as title
@@ -284,7 +286,8 @@ function preload(){
 
 
 function setup() {
-    // createCanvas(windowWidth, windowHeight);
+    frameRate(30);
+    createCanvas(windowWidth, windowHeight);
     let headerHgt = height/5;
     let frameHgt = (height - headerHgt) / 4.3;
 
@@ -319,12 +322,13 @@ function draw() {
     //title of sketch
     noStroke();
     textFont('Georgia');
-    textAlign(CENTER)
-    textSize(30);
+    textAlign(CENTER);
+    let hSize = height/25;
+    textSize(hSize);
     fill(17,30,98);  //dark blue for sketch title
-    text("15 Cat Behaviours and What They Really Mean", width/2, 110);
-    textSize(25);
-    text("Anime Version", width/2, 150);
+    text("15 Cat Behaviours and What They Really Mean", width/2, height/10);
+    textSize(hSize*0.75);
+    text("Anime Version", width/2, hSize*1.2+height/10);
     
     //display frames
     let startX = 100;
@@ -377,6 +381,15 @@ function draw() {
             frame.infoView();
         }
     }
+
+    if(frameCount>900){    //turn gray after 30s
+        let x = (frameCount%900)*0.05;
+        if(x>2){
+            x=2;
+        }
+        filter(BLUR, x);
+    }
+
 }
 
 function mouseClicked() {
