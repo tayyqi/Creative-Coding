@@ -328,7 +328,7 @@ function draw() {
     fill(17,30,98);  //dark blue for sketch title
     text("15 Cat Behaviours and What They Really Mean", width/2, height/10);
     textSize(hSize*0.75);
-    text("Anime Version", width/2, hSize*1.2+height/10);
+    text("prototype1 thesis", width/2, hSize*1.2+height/10);
     
     //display frames
     let startX = 100;
