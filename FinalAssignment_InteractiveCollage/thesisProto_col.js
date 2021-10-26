@@ -236,21 +236,21 @@ class Frame {
 ///////////END OF CLASS DECLARATION///////////
 
 
-let vid_filelist = ['../files/anime_0001_legup.mp4',
-                    '../files/anime_0002_hidden.mp4',
-                    '../files/anime_0003_chatter.mp4',
-                    '../files/anime_0004_roll.mp4',
-                    '../files/anime_0005_sleepcircle.mp4',
-                    '../files/anime_0006_laptop.mp4',
-                    '../files/anime_0007_squint.mp4',
-                    '../files/anime_0008_bite.mp4',
-                    '../files/anime_0009_quiverpounce.mp4',
-                    '../files/anime_0010_bellyflop.mp4',
-                    '../files/anime_0011_stare.mp4',
-                    '../files/anime_0012_knead.mp4',
-                    '../files/anime_0013_butt.mp4',
-                    '../files/anime_0014_catloaf.mp4',
-                    '../files/anime_0015_sleepbox.mp4',
+let vid_filelist = ['files/anime_0001_legup.mp4',
+                    'files/anime_0002_hidden.mp4',
+                    'files/anime_0003_chatter.mp4',
+                    'files/anime_0004_roll.mp4',
+                    'files/anime_0005_sleepcircle.mp4',
+                    'files/anime_0006_laptop.mp4',
+                    'files/anime_0007_squint.mp4',
+                    'files/anime_0008_bite.mp4',
+                    'files/anime_0009_quiverpounce.mp4',
+                    'files/anime_0010_bellyflop.mp4',
+                    'files/anime_0011_stare.mp4',
+                    'files/anime_0012_knead.mp4',
+                    'files/anime_0013_butt.mp4',
+                    'files/anime_0014_catloaf.mp4',
+                    'files/anime_0015_sleepbox.mp4',
                    ]
 let vid_list = [];
 let meme_list = [];
